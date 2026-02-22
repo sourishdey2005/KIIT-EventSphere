@@ -27,6 +27,28 @@ const features = [
 ];
 
 export default function Features() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section id="features" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
@@ -34,7 +56,8 @@ export default function Features() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             className="text-4xl font-bold mb-4"
           >
             Everything You Need to Manage Campus Events
@@ -42,23 +65,26 @@ export default function Features() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.1, duration: 0.8 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
             A comprehensive suite of tools designed to streamline event management for everyone in the university ecosystem.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {features.map((feature) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              variants={itemVariants}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
               className="bg-background border rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all group"
             >
               <div className={`w-14 h-14 ${feature.color} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform`}>
@@ -78,7 +104,7 @@ export default function Features() {
               </ul>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

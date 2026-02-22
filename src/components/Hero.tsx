@@ -4,8 +4,7 @@ import { ChevronRight, Play, Users, Calendar, ShieldCheck } from 'lucide-react';
 
 const images = [
   "https://res.cloudinary.com/dodhvvewu/image/upload/v1771785761/8570ced1-ad32-4be0-9997-00acffa2b4b5_kstigy.png",
-  "https://res.cloudinary.com/dodhvvewu/image/upload/v1771786635/4cfc3370-ac61-4134-a9f4-30a7b33b20eb_q7w2jy.png",
-  "https://picsum.photos/seed/campus/1200/800"
+  "https://res.cloudinary.com/dodhvvewu/image/upload/v1771786635/4cfc3370-ac61-4134-a9f4-30a7b33b20eb_q7w2jy.png"
 ];
 
 export default function Hero() {
@@ -23,6 +22,9 @@ export default function Hero() {
       {/* Background Blobs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/3 right-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: '3s' }} />
+      <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDelay: '4s' }} />
       
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-[0.05] -z-10" />
@@ -35,7 +37,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
             <ShieldCheck size={14} />
-            Exclusively for @kiit.ac.in students
+            KIITians
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
@@ -94,23 +96,6 @@ export default function Hero() {
                 referrerPolicy="no-referrer"
               />
             </AnimatePresence>
-            
-            {/* Floating Elements */}
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-              className="absolute -bottom-6 -left-6 glass p-4 rounded-2xl shadow-xl hidden sm:block"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                  <Users size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold">50+ Societies</p>
-                  <p className="text-[10px] opacity-60">Active this week</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
           
           {/* Decorative Ring */}
