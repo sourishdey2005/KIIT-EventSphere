@@ -1,0 +1,7 @@
+{
+  "name": "KIIT EventSphere",
+  "description": "Smart Campus Event & Society Management System for KIIT University.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
