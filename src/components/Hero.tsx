@@ -1,8 +1,23 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, Play, Users, Calendar, ShieldCheck } from 'lucide-react';
 
+const images = [
+  "https://res.cloudinary.com/dodhvvewu/image/upload/v1771785761/8570ced1-ad32-4be0-9997-00acffa2b4b5_kstigy.png",
+  "https://res.cloudinary.com/dodhvvewu/image/upload/v1771786635/4cfc3370-ac61-4134-a9f4-30a7b33b20eb_q7w2jy.png",
+  "https://picsum.photos/seed/campus/1200/800"
+];
+
 export default function Hero() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       {/* Background Blobs */}
@@ -65,31 +80,22 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative"
         >
-          <div className="relative z-10 glass rounded-3xl p-4 shadow-2xl animate-float">
-            <img
-              src="https://res.cloudinary.com/dodhvvewu/image/upload/v1771785761/8570ced1-ad32-4be0-9997-00acffa2b4b5_kstigy.png"
-              alt="EventSphere Dashboard Mockup"
-              className="rounded-2xl w-full shadow-lg"
-              referrerPolicy="no-referrer"
-            />
+          <div className="relative z-10 glass rounded-3xl p-4 shadow-2xl animate-float overflow-hidden h-[300px] sm:h-[450px]">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentImage}
+                src={images[currentImage]}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                alt="KIIT EventSphere Dashboard Mockup"
+                className="rounded-2xl w-full h-full object-cover shadow-lg"
+                referrerPolicy="no-referrer"
+              />
+            </AnimatePresence>
             
             {/* Floating Elements */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -top-6 -right-6 glass p-4 rounded-2xl shadow-xl hidden sm:block"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-600">
-                  <Calendar size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold">New Registration</p>
-                  <p className="text-[10px] opacity-60">Kritansh just joined!</p>
-                </div>
-              </div>
-            </motion.div>
-
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5, repeat: Infinity, delay: 1 }}

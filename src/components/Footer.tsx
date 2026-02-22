@@ -8,11 +8,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                E
-              </div>
+              <img 
+                src="https://res.cloudinary.com/dodhvvewu/image/upload/v1771785761/8570ced1-ad32-4be0-9997-00acffa2b4b5_kstigy.png" 
+                alt="KIIT EventSphere Logo" 
+                className="w-10 h-10 object-contain"
+                referrerPolicy="no-referrer"
+              />
               <span className="text-xl font-bold tracking-tight">
-                Event<span className="text-accent">Sphere</span>
+                KIIT <span className="text-accent">EventSphere</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

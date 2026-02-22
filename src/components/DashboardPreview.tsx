@@ -50,18 +50,6 @@ export default function DashboardPreview() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            
-            {/* Floating Notification */}
-            <motion.div
-              animate={{ x: [0, 10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-2xl border flex items-center gap-3"
-            >
-              <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
-                <Bell size={16} />
-              </div>
-              <p className="text-xs font-bold">New Event Approved!</p>
-            </motion.div>
           </motion.div>
         </div>
       </div>
