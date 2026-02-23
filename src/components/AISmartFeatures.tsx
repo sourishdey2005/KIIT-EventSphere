@@ -47,10 +47,10 @@ export default function AISmartFeatures() {
           {smartFeatures.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: index % 2 === 0 ? 50 : -50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.8, ease: "backOut" }}
               className="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-primary/50 transition-colors group"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">

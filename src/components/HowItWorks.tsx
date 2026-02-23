@@ -42,10 +42,10 @@ export default function HowItWorks() {
             {steps.map((step, index) => (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
                 className="relative z-10 flex flex-col items-center text-center"
               >
                 <div className="w-20 h-20 rounded-full bg-background border-4 border-primary flex items-center justify-center mb-6 shadow-lg group hover:scale-110 transition-transform">

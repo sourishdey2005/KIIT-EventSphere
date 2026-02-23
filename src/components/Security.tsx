@@ -15,26 +15,32 @@ export default function Security() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="relative"
           >
             <div className="w-full aspect-square max-w-md mx-auto relative">
               <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse" />
               <div className="absolute inset-10 bg-primary/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 bg-background rounded-3xl shadow-2xl flex items-center justify-center border-4 border-primary">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                  className="w-48 h-48 bg-background rounded-3xl shadow-2xl flex items-center justify-center border-4 border-primary"
+                >
                   <Lock size={80} className="text-primary animate-bounce" />
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl font-bold mb-6">Secure & Role-Based Access</h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
